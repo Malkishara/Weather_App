@@ -15,7 +15,7 @@ app.use(cors());
 
 function loaddata(){
 app.get('/data',function(req,res){
-    //const apiKey="07f31b0c84eb711746f366f68b8405ae";
+    
 //    for(var i=0;i<data.length;i++){
 //     var cityCode=data[i];
 //     console.log(cityCode)
