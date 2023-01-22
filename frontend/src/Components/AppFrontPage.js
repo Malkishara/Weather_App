@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-import Table from 'react-bootstrap/Table';
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -23,17 +23,21 @@ function AppFrontPage() {
       }, []);
   return (
     <div>
-      <h2>Weather Application</h2>    
+      <h2 >Weather Application</h2>  
+      
     <div>
 {
-    weatherData.map((para) => {
+    weatherData.map((para,i) => {
     return (
     <div className='container'>
     <div className='row'>
-    <div className='col-md'>
+    <div className='col-md-3'>
         
-        
-        <Card style={{ width: '18rem' }} >
+        <Link to={{pathname: "/full",
+     state: {name: para.name, temp: para.main.temp, desc: para.weather[0].description,
+     max_temp:para.main.temp_max,min_temp:para.main.temp_min,pre:para.main.pressure,hum:para.main.humidity,visi:para.visibility,
+     sunrise:para.sys.sunrise,sunset:para.sys.sunset}}}>
+        <Card style={{ width: '18rem' }} onClick={console.log(i)} >
         <Card.Body >
         
         <Row>
@@ -76,12 +80,10 @@ function AppFrontPage() {
        </Row>
        </Col>
        </Row>
-        <Card.Link href="full">Full View</Card.Link>
-        
-       
+     
       </Card.Body>
     </Card>
-                          
+    </Link>                    
     </div>
     </div>
     </div>
