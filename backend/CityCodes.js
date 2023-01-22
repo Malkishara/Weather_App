@@ -1,26 +1,26 @@
-const fs=require('fs');
-var cityCode=[]; 
-function codes(){
-    
-    fs.readFile('./cities.json','utf-8',(err,data)=>{
-    
+const {readFileSync}=require('fs');
 
-    if(err){
-        console.log(err);
-    }else{
-        const codes=JSON.parse(data);
-        for(let i=0;i<codes.List.length;i++){
-           
-            cityCode.push(codes.List[i].CityCode);
-        }
-        
-      
+const loadCodes=()=>{
+    var cityCode=[];
+    var len=JSON.parse(readFileSync('cities.json')).List.length;
+    //console.log(len);
+    for(var i=0;i<len;i++){
+    const codes=JSON.parse(readFileSync('cities.json')).List[i].CityCode;
+    //console.log(codes);
+    cityCode.push(codes);
     }
-    console.log(cityCode);
-    return cityCode;     
-})
+    //console.log(cityCode);
+    return cityCode;
+
     
 }
- 
 
- codes();
+
+
+//console.log(loadCodes())
+module.exports={
+    loadCodes,
+    
+}
+
+
