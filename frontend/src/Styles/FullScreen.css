@@ -1,4 +1,10 @@
 
+.full{
+    
+    background-size: cover;
+   
+}
+
 
 .title{
     margin-top: 50px;
@@ -8,6 +14,7 @@
 
 .cardView{
     margin-top: 30px;
+    margin-bottom: 30px;
     font-family: 'Times New Roman', Times, serif;
     margin-left: 150px;
     margin-right: 150px;

@@ -28,7 +28,7 @@ alertMessage(){
         
             <>
             <div className='full' >
-                <div >
+                <div className='view'>
                 <div className='title'><BiCloud/>  Weather App</div>
             <div className='cardView'>
         <Card style={{flex:1, backgroundColor:'cornflowerblue'}}>

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import { BiCloud } from "react-icons/bi";
 import '../Styles/AppFrontPage.css'
 
 function AppFrontPage() {
@@ -26,8 +28,15 @@ function AppFrontPage() {
     <div className='front'>
     <div className='title'>
 
-      <p >Weather Application</p>  
+    <div className='title'><BiCloud/>  Weather App</div>
       </div> 
+      <div>
+       <Form style={{ width: '25rem',marginLeft:"450px" }}>
+       <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control  placeholder="Search" /> 
+      </Form.Group>
+        </Form> 
+      </div>
     
 {
     weatherData.map((para,i) => {
@@ -40,56 +49,56 @@ function AppFrontPage() {
      state: {name: para.name, temp: para.main.temp, desc: para.weather[0].description,
      max_temp:para.main.temp_max,min_temp:para.main.temp_min,pre:para.main.pressure,hum:para.main.humidity,visi:para.visibility,
      sunrise:para.sys.sunrise,sunset:para.sys.sunset}}}>
+        <div className='cardview'>
+        <Card style={{ width: '25rem', flex:1, backgroundColor:'cornflowerblue' }} onClick={console.log(i)} >
         
-        <Card style={{ width: '18rem' }} onClick={console.log(i)} >
-        <div className='card'>
         <Card.Body >
         
-        <Row>
-        <Card.Title>{para.name}</Card.Title>
+        <Row style={{height:"50px"}}>
+        <Card.Title style={{fontSize:"35px"}}>{para.name}</Card.Title>
         </Row>
-        <Row>
+        <Row style={{height:"80px",marginTop:"10px"}}>
          <Col>
-          <Card.Text>{para.weather[0].description}</Card.Text>
+          <Card.Text style={{fontSize:"18px"}}>{para.weather[0].description}</Card.Text>
           </Col>
           <Col>
           <Row>
-          <Card.Subtitle className="mb-2 text-muted">{para.main.temp}&deg;C</Card.Subtitle>
+          <Card.Subtitle style={{fontSize:"24px"}}>{para.main.temp}&deg;C</Card.Subtitle>
           </Row>
           <Row>
-          <Card.Text>{para.main.temp_min}</Card.Text>
+          <Card.Text style={{fontSize:"18px"}}>Temp Min: {para.main.temp_min}</Card.Text>
           </Row>
           <Row>
-          <Card.Text>{para.main.temp_max}</Card.Text>
+          <Card.Text style={{fontSize:"18px"}}>Temp Max: {para.main.temp_max}</Card.Text>
           </Row>
           </Col>
         </Row>
-        <Row>
+        <Row style={{height:"70px",marginTop:"10px"}} >
         <Col>
-        <Row>
-        <Card.Text>{para.main.pressure}</Card.Text>
+        <Row >
+        <Card.Text style={{fontSize:"18px"}}>Pressure: {para.main.pressure}</Card.Text>
         </Row>
         <Row>
-        <Card.Text>{para.main.humidity}</Card.Text>
+        <Card.Text style={{fontSize:"18px"}}>Humidity: {para.main.humidity}</Card.Text>
         </Row>
         <Row>
-        <Card.Text>{para.visibility}</Card.Text>
+        <Card.Text style={{fontSize:"18px"}}>Visibility: {para.visibility}</Card.Text>
         </Row>
         </Col>
         <Col>
         <Row>
-        <Card.Text>{para.sys.sunrise}</Card.Text>
+        <Card.Text style={{fontSize:"18px"}}>Sunrise: {para.sys.sunrise}</Card.Text>
         </Row>
        <Row>
-       <Card.Text>{para.sys.sunset}</Card.Text>
+       <Card.Text style={{fontSize:"18px"}}>Sunset: {para.sys.sunset}</Card.Text>
        </Row>
        </Col>
        </Row>
      
       </Card.Body>
-      </div>
+      
     </Card>
-   
+    </div>
     </Link>                    
     </div>
     </div>
