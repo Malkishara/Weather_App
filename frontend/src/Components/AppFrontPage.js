@@ -42,18 +42,12 @@ function AppFrontPage() {
       </div>
       <div >
       {/* style={{ columnCount:2 }} */}
+      <div className='container'>
+     <div className='row' > 
+        <div className='col-6 col-md-2' >
 {
-    weatherData.filter((para)=>{
-      if(search==""){
-        return para;
-      }else if(para.name==search){
-        return para;
-      }
-    }).map((para,i) => {
+    weatherData.map((para,i) => {
     return (
-    <div className='container'>
-    {/* <div className='row' > */}
-    <div className='col-md-3' >
         
         <Link to={{pathname: "/full",
      state: {name: para.name, temp: para.main.temp, desc: para.weather[0].description,
@@ -110,12 +104,13 @@ function AppFrontPage() {
     </Card>
     </div>
     </Link>                    
-    </div>
-    {/* </div> */}
-    </div>
+    
        )
-     })
+       })
  }
+ </div>
+    </div>
+    </div>
     </div> 
   </div>
   
