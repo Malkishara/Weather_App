@@ -7,10 +7,12 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { BiCloud } from "react-icons/bi";
 import '../Styles/AppFrontPage.css'
+import { Button } from 'bootstrap';
 
 function AppFrontPage() {
 
     const [weatherData,setWeatherData]=useState([])
+    const [search,setSearch]=useState('')
     
 
     useEffect(() => {
@@ -33,17 +35,25 @@ function AppFrontPage() {
       <div>
        <Form style={{ width: '25rem',marginLeft:"450px" }}>
        <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control  placeholder="Search" /> 
+        <Form.Control type='text'  placeholder="Search" onChange={event=>{setSearch(event.target.value)}}/> 
       </Form.Group>
+      
         </Form> 
       </div>
-    
+      <div >
+      {/* style={{ columnCount:2 }} */}
 {
-    weatherData.map((para,i) => {
+    weatherData.filter((para)=>{
+      if(search==""){
+        return para;
+      }else if(para.name==search){
+        return para;
+      }
+    }).map((para,i) => {
     return (
     <div className='container'>
-    <div className='row'>
-    <div className='col-md-3'>
+    {/* <div className='row' > */}
+    <div className='col-md-3' >
         
         <Link to={{pathname: "/full",
      state: {name: para.name, temp: para.main.temp, desc: para.weather[0].description,
@@ -101,12 +111,12 @@ function AppFrontPage() {
     </div>
     </Link>                    
     </div>
-    </div>
+    {/* </div> */}
     </div>
        )
      })
  }
-     
+    </div> 
   </div>
   
 
