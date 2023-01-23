@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import '../Styles/AppFrontPage.css'
 
 function AppFrontPage() {
 
@@ -22,10 +23,12 @@ function AppFrontPage() {
       
       }, []);
   return (
-    <div>
-      <h2 >Weather Application</h2>  
-      
-    <div>
+    <div className='front'>
+    <div className='title'>
+
+      <p >Weather Application</p>  
+      </div> 
+    
 {
     weatherData.map((para,i) => {
     return (
@@ -37,7 +40,9 @@ function AppFrontPage() {
      state: {name: para.name, temp: para.main.temp, desc: para.weather[0].description,
      max_temp:para.main.temp_max,min_temp:para.main.temp_min,pre:para.main.pressure,hum:para.main.humidity,visi:para.visibility,
      sunrise:para.sys.sunrise,sunset:para.sys.sunset}}}>
+        
         <Card style={{ width: '18rem' }} onClick={console.log(i)} >
+        <div className='card'>
         <Card.Body >
         
         <Row>
@@ -49,7 +54,7 @@ function AppFrontPage() {
           </Col>
           <Col>
           <Row>
-          <Card.Subtitle className="mb-2 text-muted">{para.main.temp}</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">{para.main.temp}&deg;C</Card.Subtitle>
           </Row>
           <Row>
           <Card.Text>{para.main.temp_min}</Card.Text>
@@ -82,7 +87,9 @@ function AppFrontPage() {
        </Row>
      
       </Card.Body>
+      </div>
     </Card>
+   
     </Link>                    
     </div>
     </div>
@@ -90,8 +97,9 @@ function AppFrontPage() {
        )
      })
  }
-     </div>
+     
   </div>
+  
 
     
   )

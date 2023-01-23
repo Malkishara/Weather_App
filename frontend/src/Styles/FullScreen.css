@@ -1,0 +1,51 @@
+
+
+.title{
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+
+.cardView{
+    margin-top: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 150px;
+    margin-right: 150px;
+
+}
+.btn{
+    width: 50px;
+    margin-left: 20px;
+}
+.back{
+    
+    color: black;
+    height: 30px;
+    width: 30px;
+    margin-left: 0;
+}
+
+.cardTitle{
+    font-size: 40px;
+    height: 60px;
+}
+
+.temp{
+    font-size: 40px;  
+}
+
+.other{
+    font-size: 20px;    
+}
+
+.second{
+    height: 70px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.last{
+    
+  justify-content: center;
+  align-items: center;
+}

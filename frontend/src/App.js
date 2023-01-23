@@ -7,7 +7,7 @@ import FullScreen from './Components/FullScreen';
 function App() {
   return (
     <div className="App">
-      <h1>Weather App</h1>
+      
       <Router>
        
        <Switch>
